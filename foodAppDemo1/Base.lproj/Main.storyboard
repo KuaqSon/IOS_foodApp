@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ykb-Ax-6tM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oHw-Wn-bhu">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--List Food View Controller-->
+        <!--Food-->
         <scene sceneID="cHx-YR-Lc2">
             <objects>
                 <viewController id="Ykb-Ax-6tM" customClass="listFoodViewController" customModule="foodAppDemo1" customModuleProvider="target" sceneMemberID="viewController">
@@ -31,7 +31,7 @@
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Sqs-TQ-tFy">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="foodCell" rowHeight="150" id="3uc-Mj-oqa" customClass="FoodTableViewCell" customModule="foodAppDemo1" customModuleProvider="target">
@@ -94,6 +94,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Pg6-dS-UMo"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Food" image="icons8-vegan-food-25" id="kCN-AE-mNL"/>
+                    <navigationItem key="navigationItem" id="raA-So-tM7"/>
                     <connections>
                         <outlet property="tableViewListFood" destination="Sqs-TQ-tFy" id="sQZ-EM-gzX"/>
                     </connections>
@@ -101,6 +103,70 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rLe-kT-lFb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1679.2" y="116.49175412293854"/>
+        </scene>
+        <!--Category-->
+        <scene sceneID="3Si-oA-Hl6">
+            <objects>
+                <tableViewController id="N0E-QD-LZi" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ezT-2z-Ib1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="U6e-wL-JqQ">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="U6e-wL-JqQ" id="ES3-NZ-o83">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="N0E-QD-LZi" id="8yN-QH-S94"/>
+                            <outlet property="delegate" destination="N0E-QD-LZi" id="ydE-CQ-g1W"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Category" image="icons8-nonya-kueh-25" id="aeY-Wy-a1k"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xTa-ED-Mpj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1959" y="1173"/>
+        </scene>
+        <!--Menu-->
+        <scene sceneID="BdZ-Ly-ajl">
+            <objects>
+                <viewController id="ilx-Na-CtT" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Tu8-qR-aj3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="AD4-Tk-xIi"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Menu" image="icons8-cashbook-25" id="fWh-GQ-HmT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jxC-WY-HcD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3990" y="1174"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="YYZ-wO-0GI">
+            <objects>
+                <tabBarController id="oHw-Wn-bhu" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="utB-U9-z4T">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="ilx-Na-CtT" kind="relationship" relationship="viewControllers" id="ocE-Y2-KWa"/>
+                        <segue destination="Ykb-Ax-6tM" kind="relationship" relationship="viewControllers" id="Epj-5s-BY3"/>
+                        <segue destination="N0E-QD-LZi" kind="relationship" relationship="viewControllers" id="fej-hH-8Qb"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3aN-72-eVK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3249" y="296"/>
         </scene>
         <!--Add Food View Controller-->
         <scene sceneID="gfT-kr-gPl">
@@ -116,7 +182,7 @@
                                     <navigationItem title="Add Food" id="Pf9-cV-t8Q">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="chC-LR-ZK7">
                                             <connections>
-                                                <segue destination="Ykb-Ax-6tM" kind="show" id="Ht8-iB-ioJ"/>
+                                                <segue destination="oHw-Wn-bhu" kind="show" id="lcq-I7-zd6"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Save" id="WR9-Yi-XTD">
@@ -147,7 +213,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Kc-09-stm">
-                                <rect key="frame" x="119" y="525" width="137" height="41"/>
+                                <rect key="frame" x="137" y="525" width="101" height="41"/>
                                 <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="H8D-md-Nc4"/>
@@ -163,15 +229,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="1Kc-09-stm" firstAttribute="leading" secondItem="8a0-Lr-7iW" secondAttribute="leading" constant="119" id="1AJ-fu-kP8"/>
+                            <constraint firstItem="1Kc-09-stm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8a0-Lr-7iW" secondAttribute="leading" id="1AJ-fu-kP8"/>
                             <constraint firstItem="d04-pJ-lGU" firstAttribute="leading" secondItem="8a0-Lr-7iW" secondAttribute="leading" id="2GA-AV-2WI"/>
                             <constraint firstItem="8a0-Lr-7iW" firstAttribute="bottom" secondItem="1Kc-09-stm" secondAttribute="bottom" constant="101" id="5zP-yv-hsn"/>
                             <constraint firstItem="d04-pJ-lGU" firstAttribute="top" secondItem="8a0-Lr-7iW" secondAttribute="top" id="6MH-eY-BSR"/>
                             <constraint firstItem="py8-9p-fIe" firstAttribute="trailing" secondItem="vcx-Fi-bNk" secondAttribute="trailing" id="6yz-b0-Z67"/>
-                            <constraint firstItem="1Kc-09-stm" firstAttribute="leading" secondItem="8a0-Lr-7iW" secondAttribute="leading" constant="119" id="74g-ga-297"/>
+                            <constraint firstItem="1Kc-09-stm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8a0-Lr-7iW" secondAttribute="leading" id="74g-ga-297"/>
                             <constraint firstItem="py8-9p-fIe" firstAttribute="leading" secondItem="8a0-Lr-7iW" secondAttribute="leading" constant="54" id="9A3-X4-oB7"/>
                             <constraint firstItem="dRR-Ui-iEb" firstAttribute="top" secondItem="d04-pJ-lGU" secondAttribute="bottom" constant="50" id="CW0-pz-lJT"/>
-                            <constraint firstItem="8a0-Lr-7iW" firstAttribute="trailing" secondItem="1Kc-09-stm" secondAttribute="trailing" constant="119" id="Chx-e0-TmO"/>
+                            <constraint firstItem="8a0-Lr-7iW" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1Kc-09-stm" secondAttribute="trailing" id="Chx-e0-TmO"/>
                             <constraint firstItem="8a0-Lr-7iW" firstAttribute="trailing" secondItem="vcx-Fi-bNk" secondAttribute="trailing" constant="54" id="FQY-gF-fgl"/>
                             <constraint firstItem="8a0-Lr-7iW" firstAttribute="trailing" secondItem="py8-9p-fIe" secondAttribute="trailing" constant="54" id="Gs6-W5-FXZ"/>
                             <constraint firstItem="dRR-Ui-iEb" firstAttribute="leading" secondItem="8a0-Lr-7iW" secondAttribute="leading" constant="16" id="I5v-od-qA0"/>
@@ -222,11 +288,10 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3jS-iC-KPB">
-                                <rect key="frame" x="152" y="260" width="80" height="47"/>
+                                <rect key="frame" x="152" y="260" width="70" height="47"/>
                                 <color key="backgroundColor" red="0.45009386540000001" green="0.98132258650000004" blue="0.4743030667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="47" id="gJS-Of-dxJ"/>
-                                    <constraint firstAttribute="width" constant="80" id="kql-1b-ohU"/>
+                                    <constraint firstAttribute="height" constant="47" id="Gbr-lJ-5FA"/>
                                 </constraints>
                                 <state key="normal" title="Save"/>
                                 <connections>
@@ -237,13 +302,14 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="F1X-oC-0xj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="DJa-Nh-hi0"/>
+                            <constraint firstItem="3jS-iC-KPB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="152" id="F39-dc-M1O"/>
                             <constraint firstItem="F1X-oC-0xj" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="F3V-ha-EO4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fB4-aD-LvG" secondAttribute="trailing" constant="16" id="RBy-Sb-MDP"/>
                             <constraint firstItem="fB4-aD-LvG" firstAttribute="top" secondItem="F1X-oC-0xj" secondAttribute="bottom" constant="86" id="Slc-2X-OzV"/>
                             <constraint firstItem="fB4-aD-LvG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="TWj-Y5-JWU"/>
+                            <constraint firstItem="3jS-iC-KPB" firstAttribute="top" secondItem="fB4-aD-LvG" secondAttribute="bottom" constant="80" id="gcu-zL-IxE"/>
                             <constraint firstItem="F1X-oC-0xj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="h8b-Rc-b3L"/>
-                            <constraint firstItem="3jS-iC-KPB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="152" id="rcL-wS-Fq4"/>
-                            <constraint firstItem="3jS-iC-KPB" firstAttribute="top" secondItem="fB4-aD-LvG" secondAttribute="bottom" constant="80" id="sSN-X5-3Ko"/>
+                            <constraint firstItem="3jS-iC-KPB" firstAttribute="centerX" secondItem="fB4-aD-LvG" secondAttribute="centerX" id="tTa-gn-wrB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -256,4 +322,9 @@
             <point key="canvasLocation" x="116" y="117.39130434782609"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icons8-cashbook-25" width="25" height="25"/>
+        <image name="icons8-nonya-kueh-25" width="25" height="25"/>
+        <image name="icons8-vegan-food-25" width="25" height="25"/>
+    </resources>
 </document>
