@@ -12,6 +12,8 @@ class FoodTableViewCell: UITableViewCell {
 
     @IBOutlet weak var imageFoodView: UIImageView!
     @IBOutlet weak var laFoodName: UILabel!
+    @IBOutlet weak var laCagetoryName: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,6 +21,7 @@ class FoodTableViewCell: UITableViewCell {
     
     func setFood(food: Food) {
         laFoodName.text = food.food_name
+        laCagetoryName.text = food.toFoodType?.category_name
         imageFoodView.image = food.image as? UIImage
     }
 
