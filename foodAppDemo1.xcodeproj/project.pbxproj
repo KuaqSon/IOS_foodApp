@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		911C406F20BD3905009C9A2D /* FoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911C406E20BD3905009C9A2D /* FoodTableViewCell.swift */; };
 		911C407120BD3ADB009C9A2D /* listFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911C407020BD3ADB009C9A2D /* listFoodViewController.swift */; };
+		914E720420C3B6EF000C0AFC /* listCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914E720320C3B6EF000C0AFC /* listCategoryTableViewController.swift */; };
 		9189D8E420BC4402003CF82B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9189D8E320BC4402003CF82B /* AppDelegate.swift */; };
 		9189D8E620BC4402003CF82B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9189D8E520BC4402003CF82B /* ViewController.swift */; };
 		9189D8E920BC4402003CF82B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9189D8E720BC4402003CF82B /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		911C406E20BD3905009C9A2D /* FoodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTableViewCell.swift; sourceTree = "<group>"; };
 		911C407020BD3ADB009C9A2D /* listFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = listFoodViewController.swift; sourceTree = "<group>"; };
+		914E720320C3B6EF000C0AFC /* listCategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = listCategoryTableViewController.swift; sourceTree = "<group>"; };
 		9189D8E020BC4402003CF82B /* foodAppDemo1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = foodAppDemo1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9189D8E320BC4402003CF82B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9189D8E520BC4402003CF82B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				9189D8EA20BC4402003CF82B /* foodAppDemo1.xcdatamodeld */,
 				911C406E20BD3905009C9A2D /* FoodTableViewCell.swift */,
 				911C407020BD3ADB009C9A2D /* listFoodViewController.swift */,
+				914E720320C3B6EF000C0AFC /* listCategoryTableViewController.swift */,
 			);
 			path = foodAppDemo1;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9189D8E620BC4402003CF82B /* ViewController.swift in Sources */,
+				914E720420C3B6EF000C0AFC /* listCategoryTableViewController.swift in Sources */,
 				9189D8EC20BC4402003CF82B /* foodAppDemo1.xcdatamodeld in Sources */,
 				911C406F20BD3905009C9A2D /* FoodTableViewCell.swift in Sources */,
 				9189D8FB20BC870A003CF82B /* AddFoodViewController.swift in Sources */,
