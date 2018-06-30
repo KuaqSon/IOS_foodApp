@@ -9,27 +9,22 @@
 import UIKit
 import CoreData
 
-class AddFoodViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource {
+class AddFoodViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var txtFoodName: UITextField!
     @IBOutlet weak var imageFood: UIImageView!
     
-    @IBOutlet weak var tblDropDown: UITableView!
-    @IBOutlet weak var tblDropDownHC: NSLayoutConstraint!
-    @IBOutlet weak var btnSelectCategory: UIButton!
-    
-    var isTableVisible = false
-    
+    @IBOutlet weak var pickerCategory: UIPickerView!
+
     var listCategory = [Categories]()
     var imagePicker: UIImagePickerController!
     override func viewDidLoad() {
         super.viewDidLoad()
         loadCategory()
         
-        tblDropDown.delegate = self
-        tblDropDown.dataSource = self
-        tblDropDownHC.constant = 0
-        
+        pickerCategory.delegate = self
+        pickerCategory.dataSource = self
+    
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
 
@@ -46,13 +41,21 @@ class AddFoodViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return listCategory.count
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        let categories = listCategory[row]
+        return categories.category_name
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
     
     @IBAction func buSelectImage(_ sender: Any) {
         present(imagePicker, animated: true, completion: nil)
@@ -65,54 +68,12 @@ class AddFoodViewController: UIViewController, UIImagePickerControllerDelegate, 
         imagePicker.dismiss(animated: true, completion: nil)
     }
     
-    
-    // table cagetory
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listCategory.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "selectCategory")
-        if cell == nil {
-            cell == UITableViewCell(style: .default, reuseIdentifier: "selectCategory")
-        }
-        let category = listCategory[indexPath.row] as Categories
-        cell?.textLabel?.text = category.category_name?.uppercased()
-        return cell!
-    }
-    
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let category = listCategory[indexPath.row] as Categories
-        btnSelectCategory.setTitle(category.category_name?.uppercased(), for: .normal)
-        UIView.animate(withDuration: 0.5) {
-            self.tblDropDownHC.constant = 0
-            self.isTableVisible = false
-            self.view.layoutIfNeeded()
-        }
-    }
-    
-    
-    @IBAction func bttSelectCategory(_ sender: AnyObject) {
-        UIView.animate(withDuration: 0.5) {
-            if self.isTableVisible == false {
-                self.isTableVisible == true
-                self.tblDropDownHC.constant = 44.0 * 3.0
-            } else {
-                self.tblDropDownHC.constant = 0
-                self.isTableVisible = false
-            }
-            self.view.layoutIfNeeded()
-        }
-    }
-    
     @IBAction func buSave(_ sender: Any) {
         let newFood = Food(context: context)
         newFood.food_name = txtFoodName.text
         newFood.date_add = NSDate() as? Date
         newFood.image = imageFood.image
-        newFood.toFoodType? = listCategory[1]
+        newFood.toFoodType = listCategory[ pickerCategory.selectedRow(inComponent: 0)]
         do {
             try ad.saveContext()
             txtFoodName.text = ""
