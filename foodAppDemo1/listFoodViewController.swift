@@ -64,14 +64,20 @@ class listFoodViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        guard editingStyle == .delete else {
-            return
+        if editingStyle == .delete {
+            let food = listOfFood[indexPath.row]
+            listOfFood.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            context.delete(food)
+            do {
+                try ad.saveContext()
+            }catch {
+                print("cannot save record")
+            }
         }
-        //tableView.deleteRows(at: [indexPath], with: .automatic)
-        //listOfFood.remove(at: indexPath.row)
-        //loadFood()
-        
     }
+    
+	
     
 
 }

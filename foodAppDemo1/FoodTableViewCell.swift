@@ -13,7 +13,7 @@ class FoodTableViewCell: UITableViewCell {
     @IBOutlet weak var imageFoodView: UIImageView!
     @IBOutlet weak var laFoodName: UILabel!
     @IBOutlet weak var laCagetoryName: UILabel!
-    
+    @IBOutlet weak var laFoodDate: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,6 +22,9 @@ class FoodTableViewCell: UITableViewCell {
     func setFood(food: Food) {
         laFoodName.text = food.food_name
         laCagetoryName.text = food.toFoodType?.category_name
+        let formatter = DateFormatter()
+        formatter.dateFormat =  "dd-MM-yyyy"
+        laFoodDate.text = formatter.string(from: food.date!)
         imageFoodView.image = food.image as? UIImage
     }
 

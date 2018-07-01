@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         do {
             try ad.saveContext()
             txtCategoryName.text = ""
-        }catch{
+        }catch {
             print("cannot save record")
         }
     }

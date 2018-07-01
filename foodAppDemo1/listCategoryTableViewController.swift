@@ -59,7 +59,21 @@ class listCategoryTableViewController: UITableViewController {
 
         return cell
     }
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let category = listCategory[indexPath.row]
+            listCategory.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            context.delete(category)
+            do {
+                try ad.saveContext()
+            }catch {
+                print("cannot save record")
+            }
+        }
+    }
  
+
 
 
 }

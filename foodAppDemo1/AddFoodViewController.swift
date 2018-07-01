@@ -14,8 +14,11 @@ class AddFoodViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var txtFoodName: UITextField!
     @IBOutlet weak var imageFood: UIImageView!
     
+    @IBOutlet weak var txtFoodDisc: UITextView!
+    @IBOutlet weak var txtFoodLocation: UITextField!
     @IBOutlet weak var pickerCategory: UIPickerView!
 
+    @IBOutlet weak var pickerDate: UIDatePicker!
     var listCategory = [Categories]()
     var imagePicker: UIImagePickerController!
     override func viewDidLoad() {
@@ -61,7 +64,7 @@ class AddFoodViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBAction func buSelectImage(_ sender: Any) {
         present(imagePicker, animated: true, completion: nil)
     }
-    
+   
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imageFood.image = image
@@ -72,8 +75,10 @@ class AddFoodViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBAction func buSave(_ sender: Any) {
         let newFood = Food(context: context)
         newFood.food_name = txtFoodName.text
-        newFood.date_add = NSDate() as? Date
+        newFood.location = txtFoodLocation.text
+        newFood.date = pickerDate.date
         newFood.image = imageFood.image
+        newFood.discription = txtFoodDisc.text
         newFood.toFoodType = listCategory[ pickerCategory.selectedRow(inComponent: 0)]
         do {
             try ad.saveContext()
