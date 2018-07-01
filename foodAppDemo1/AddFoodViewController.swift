@@ -27,6 +27,7 @@ class AddFoodViewController: UIViewController, UIImagePickerControllerDelegate, 
     
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
+        self.hideKeyboardWhenTappedAround()
 
         // Do any additional setup after loading the view.
     }
@@ -83,6 +84,7 @@ class AddFoodViewController: UIViewController, UIImagePickerControllerDelegate, 
         
     }
 
+
     /*
     // MARK: - Navigation
 
@@ -94,3 +96,6 @@ class AddFoodViewController: UIViewController, UIImagePickerControllerDelegate, 
     */
 
 }
+
+
+

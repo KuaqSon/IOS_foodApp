@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var txtCategoryName: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -41,4 +41,5 @@ class ViewController: UIViewController {
     }
     
 }
+
 

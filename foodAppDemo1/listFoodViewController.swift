@@ -32,6 +32,20 @@ class listFoodViewController: UIViewController, UITableViewDelegate, UITableView
             print("cannot load food")
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "foodDetail", sender: listOfFood[indexPath.row])
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "foodDetail" {
+            if let dis = segue.destination as? FoodDetailViewController {
+                if let food = sender as? Food {
+                    dis.food = food
+                }
+            }
+        }
+    }
+    
 
     // table
     
@@ -47,6 +61,16 @@ class listFoodViewController: UIViewController, UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "foodCell", for: indexPath) as! FoodTableViewCell
         cell.setFood(food: listOfFood[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        guard editingStyle == .delete else {
+            return
+        }
+        //tableView.deleteRows(at: [indexPath], with: .automatic)
+        //listOfFood.remove(at: indexPath.row)
+        //loadFood()
+        
     }
     
 
